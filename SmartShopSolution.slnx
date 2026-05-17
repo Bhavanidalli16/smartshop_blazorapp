@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="SmartShop.AuthApi/SmartShop.AuthApi.csproj" />
   <Project Path="SmartShop.CatalogApi/SmartShop.CatalogApi.csproj" />
   <Project Path="SmartShop.Shared/SmartShop.Shared.csproj" />
