@@ -33,4 +33,18 @@ public class UsersController : ControllerBase
 
         return Ok(user);
     }
+    [HttpPost("login")]
+    public async Task<ActionResult<User>> Login(User loginUser)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(
+            u => u.Email == loginUser.Email &&
+                 u.Password == loginUser.Password);
+
+        if (user == null)
+        {
+            return Unauthorized("Invalid Email or Password");
+        }
+
+        return Ok(user);
+    }
 }

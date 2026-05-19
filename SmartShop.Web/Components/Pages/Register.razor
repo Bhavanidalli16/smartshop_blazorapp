@@ -1,0 +1,67 @@
+﻿@page "/register"
+@rendermode InteractiveServer
+
+@using SmartShop.Shared
+@inject SmartShop.Web.Services.UserService UserService
+@inject NavigationManager Navigation
+
+<h2>Register</h2>
+
+<div class="container mt-4">
+
+    <div class="card p-4 shadow">
+
+        <!-- Username -->
+        <div class="mb-3">
+
+            <label>Username</label>
+
+            <input class="form-control"
+                   @bind="user.Username" />
+
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+
+            <label>Email</label>
+
+            <input class="form-control"
+                   @bind="user.Email" />
+
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+
+            <label>Password</label>
+
+            <input type="password"
+                   class="form-control"
+                   @bind="user.Password" />
+
+        </div>
+
+        <!-- Register Button -->
+        <button class="btn btn-primary"
+                @onclick="RegisterUser">
+
+            Register
+
+        </button>
+
+    </div>
+
+</div>
+
+@code {
+
+    User user = new();
+
+    private async Task RegisterUser()
+    {
+        await UserService.RegisterUser(user);
+
+        Navigation.NavigateTo("/login");
+    }
+}

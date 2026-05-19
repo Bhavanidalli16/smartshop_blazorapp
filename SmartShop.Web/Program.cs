@@ -21,6 +21,7 @@ builder.Services.AddScoped(sp =>
    Register your ProductService so @inject works
 ------------------------------------------------*/
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
