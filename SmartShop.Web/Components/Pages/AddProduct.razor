@@ -1,0 +1,81 @@
+﻿@page "/add-product"
+@rendermode InteractiveServer
+@using SmartShop.Shared
+
+@inject SmartShop.Web.Services.ProductService ProductService
+@inject NavigationManager Navigation
+
+<h2>Add Product</h2>
+
+<div class="container mt-4">
+
+    <div class="card p-4 shadow">
+
+        <!-- Product Name -->
+        <div class="mb-3">
+
+            <label>Product Name</label>
+
+            <input class="form-control"
+                   @bind="product.Name" />
+
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+
+            <label>Price</label>
+
+            <input type="number"
+                   class="form-control"
+                   @bind="product.Price" />
+
+        </div>
+
+        <!-- Quantity -->
+        <div class="mb-3">
+
+            <label>Quantity</label>
+
+            <input type="number"
+                   class="form-control"
+                   @bind="product.Quantity" />
+
+        </div>
+
+        <!-- Save Button -->
+        <button class="btn btn-success"
+                @onclick="SaveProduct">
+
+            Save Product
+
+        </button>
+
+        <p>@message</p>
+
+    </div>
+
+</div>
+
+@code {
+
+    Product product = new();
+
+    string message = "";
+
+    private async Task SaveProduct()
+    {
+        try
+        {
+            await ProductService.AddProduct(product);
+
+            message = "Product Added Successfully";
+
+            Navigation.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}

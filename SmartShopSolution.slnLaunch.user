@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SmartShop.AuthApi\\SmartShop.AuthApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SmartShop.CatalogApi\\SmartShop.CatalogApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SmartShop.Web\\SmartShop.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
