@@ -1,8 +1,8 @@
 ﻿@rendermode InteractiveServer
 @page "/products"
+
 @using SmartShop.Shared
 
-@* Inject ProductService *@
 @inject SmartShop.Web.Services.ProductService ProductService
 
 <h1>Products</h1>
@@ -12,6 +12,7 @@
 <h3>@message</h3>
 
 <div class="container">
+
     <div class="row">
 
         @* Loop through products *@
@@ -37,6 +38,14 @@
 
                         </p>
 
+                        @* Low Stock Warning *@
+                        @if (item.Quantity < 5)
+                        {
+                            <p class="text-danger fw-bold mt-2">
+                                ⚠ Low Stock!
+                            </p>
+                        }
+
                         @* Delete Button *@
                         <button class="btn btn-danger"
                                 @onclick="async () => await DeleteProduct(item.Id)">
@@ -51,6 +60,7 @@
         }
 
     </div>
+
 </div>
 
 @code {

@@ -13,6 +13,10 @@
       {
         "Path": "SmartShop.Web\\SmartShop.Web.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "SmartShop.InventoryWorker\\SmartShop.InventoryWorker.csproj",
+        "Action": "Start"
       }
     ]
   }
